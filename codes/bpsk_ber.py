@@ -10,7 +10,7 @@ err_sim = []
 
 err_ana = []
 bits = []
-bits = np.random.randint(0,2,100)
+bits = np.random.randint(0,2,100000)
 
 
 for i in range(0,len(snr)):
@@ -30,7 +30,7 @@ for i in range(0,len(snr)):
     for k in range(0,len(bits)):
         if(bits[k]!=r[k]):
             t = t+1;
-    err_sim.append(t/100)
+    err_sim.append(t/100000)
     err_ana.append(qfunc(math.sqrt(snr[i])))
 plt.semilogy(snr_db.T,err_ana,label='Analysis')
 plt.semilogy(snr_db.T,err_sim,'o',label='Sim')
