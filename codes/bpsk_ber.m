@@ -11,10 +11,10 @@ simlen = 100000;
 for i = 1:10
     n = normrnd(0,1,[1,simlen]);
     rx = sqrt(SNR(i)) + n;
-    a = rx.*100000;
+    
     %%storing indices of rx<0
-    idx = a<0;
-    neg = a(idx);
+    idx = rx<0;
+    neg = rx(idx);
     %%calculating simulation error
     err_sim = [err_sim,(length(neg))/simlen];
     %%calculating analytical error
